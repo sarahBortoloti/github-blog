@@ -1,19 +1,21 @@
-import { Header } from "./components/Header";
-import { ThemeProvider } from "styled-components"
-import { GlobalStyle } from "./styles/global"
-import { defaultTheme } from "./styles/themes/default"
-import { CardPage } from "./components/CardPage";
-import { Home } from "./pages/Home";
+import { ThemeProvider } from "styled-components";
+import { GlobalStyle } from "./styles/global";
+import { defaultTheme } from "./styles/themes/default";
+import { Router } from "./routes";
+import { UserProvider } from "./context";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />
-      <Header />
-      <CardPage />
-      <Home />
+      <UserProvider>
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
+      </UserProvider>
     </ThemeProvider>
-  )
+  );
 }
 
-export default App
+export default App;
