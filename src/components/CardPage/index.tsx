@@ -13,6 +13,7 @@ type UserInfo = {
   company: string;
   bio: string;
   followers: number;
+  html_url: string;
 }
 
 export const CardPage = () => {
@@ -28,7 +29,7 @@ export const CardPage = () => {
     const response = await get('users/sarahBortoloti');
 
     if (response.data) {
-      const getUserInfo = (({ name, login, avatar_url, company, bio, followers }) => ({ name, login, avatar_url, company, bio, followers }))(response.data as UserInfo);
+      const getUserInfo = (({ name, login, avatar_url, company, bio, followers, html_url }) => ({ name, login, avatar_url, company, bio, followers, html_url }))(response.data as UserInfo);
 
       setUserInfo(getUserInfo);
     }

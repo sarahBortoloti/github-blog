@@ -6,7 +6,7 @@ import { useContext } from "react";
 
 export const Profile = () => {
   const { userInfo } = useContext(UserContext);
-  const { name, bio, login, avatar_url, company, followers } = userInfo;
+  const { name, bio, login, avatar_url, company, followers, html_url } = userInfo;
 
   return (
     <>
@@ -33,6 +33,7 @@ export const Profile = () => {
 
       <Link
         linkText="Github"
+        externalLink={html_url}
         iconLeft={<ArrowSquareUpRight size={16} color="#3294F8" />}
       />
     </>

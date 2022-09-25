@@ -7,6 +7,7 @@ type UserInfo = {
   company: string;
   bio: string;
   followers: number;
+  html_url: string;
 };
 
 type UserContextType = {
@@ -23,7 +24,6 @@ export const UserContext = createContext({} as UserContextType);
 export const UserProvider = ({ children }: UserProviderProps) => {
   const [userInfo, setUserInfo] = useState({} as UserInfo);
 
-  console.log(userInfo);
   return (
     <UserContext.Provider value={{ userInfo, setUserInfo }}>
       {children}
