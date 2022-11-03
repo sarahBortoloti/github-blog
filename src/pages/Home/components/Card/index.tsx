@@ -1,3 +1,4 @@
+import { dateFormatter } from "../../../../utils"
 import { Card, CardHeader } from "./styles"
 
 type CardProps = {
@@ -6,19 +7,18 @@ type CardProps = {
   published_in: string,
 }
 
-export const CardView = () => {
+export const CardView = ({ title, brief, published_in }: CardProps) => {
+  const date = dateFormatter().format(new Date(published_in));
   return (
     <Card>
       <CardHeader>
         <h5>
-          JavaScript data types and data structures
+          {title}
         </h5>
-        <span>Há 5 dias</span>
+        <span>{date}</span>
       </CardHeader>
       <section>
-        Programming languages all have built-in data structures, but these often differ from one language to another.
-        This article attempts to list the built-in data structures available in JavaScript and what properties they have.
-        These can be used to build other data structures. Wherever possible, comparisons with other languages are drawn.
+        {brief}
       </section>
     </Card>
   )
